@@ -11,14 +11,16 @@ class Home extends Component {
   }
 
   handleChange = e => this.setState({ url: e.target.value })
-
+  create = () => {
+    var url = Math.random().toString(36).substring(2, 7)
+    window.location.href = `/${url}`
+  }
   join = () => {
     if (this.state.url !== "") {
       var url = this.state.url.split("/")
       window.location.href = `/${url[url.length - 1]}`
     } else {
-      var url = Math.random().toString(36).substring(2, 7)
-      window.location.href = `/${url}`
+      window.alert("Please enter the URL of the room you wish to enter")
     }
   }
 
@@ -36,14 +38,22 @@ class Home extends Component {
           <p style={{ margin: 0, fontWeight: "bold", paddingRight: "50px" }}>
             Start or join a meeting
           </p>
-
+          <Button
+            variant='contained'
+            color='purple'
+            onClick={this.create}
+            style={{ margin: "20px" }}
+          >
+            Start
+          </Button>
+          <Input placeholder='URL' onChange={e => this.handleChange(e)} />
           <Button
             variant='contained'
             color='purple'
             onClick={this.join}
             style={{ margin: "20px" }}
           >
-            Go
+            Join
           </Button>
         </div>
       </div>

@@ -17,6 +17,19 @@ var socket = null
 var socketId = null
 var elms = 0
 
+var theStream
+var theRecorder
+var recordedChunks = []
+
+const constraints = {
+  video: {
+    width: {
+      max: 400,
+    },
+  },
+  audio: true,
+}
+
 class Video extends Component {
   constructor(props) {
     super(props)
@@ -424,6 +437,54 @@ class Video extends Component {
     })
   }
 
+  startFunction = () => {
+    navigator.mediaDevices
+      .getUserMedia({ video: true, audio: true })
+      .then(this.gotMedia)
+      .catch(e => {
+        console.error("getUserMedia() failed: " + e)
+      })
+  }
+
+  gotMedia = stream => {
+    theStream = stream
+    var video = document.querySelector("video")
+    video.srcObject = stream
+    try {
+      var recorder = new MediaRecorder(stream, {
+        mimeType: "video/webm",
+      })
+    } catch (e) {
+      console.error("Exception while creating MediaRecorder: " + e)
+      return
+    }
+
+    theRecorder = recorder
+    recorder.ondataavailable = event => {
+      recordedChunks.push(event.data)
+    }
+    recorder.start(100)
+  }
+
+  stopFile = () => {
+    theRecorder.stop()
+  }
+
+  download = () => {
+    theRecorder.stop()
+
+    var blob = new Blob(recordedChunks, {
+      type: "video/webm",
+    })
+    var url = URL.createObjectURL(blob)
+    var a = document.createElement("a")
+    document.body.appendChild(a)
+    a.style = "display: none"
+    a.href = url
+    a.download = "test.webm"
+    a.click()
+  }
+
   connect = () =>
     this.setState({ askForUsername: false }, () => this.getMedia())
 
@@ -478,6 +539,8 @@ class Video extends Component {
                   }}
                 ></video>
               </Row>
+              <button onClick={this.startFunction}>Record</button>
+              <button onClick={this.download}> Download!</button>
             </div>
           </div>
         )}
