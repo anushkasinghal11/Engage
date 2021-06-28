@@ -13,7 +13,8 @@ import ScreenShareIcon from "@material-ui/icons/ScreenShare"
 import StopScreenShareIcon from "@material-ui/icons/StopScreenShare"
 import CallEndIcon from "@material-ui/icons/CallEnd"
 import ChatIcon from "@material-ui/icons/Chat"
-
+import GetAppIcon from "@material-ui/icons/GetApp"
+import MovieFilterIcon from "@material-ui/icons/MovieFilter"
 import { message } from "antd"
 import "antd/dist/antd.css"
 
@@ -58,6 +59,7 @@ class Video extends Component {
       participants: [],
       message: "",
       filter: "",
+      record: false,
       chatTheme: "",
       newmessages: 0,
       askForUsername: true,
@@ -509,7 +511,12 @@ class Video extends Component {
     this.setState({ audio: !this.state.audio }, () => this.getUserMedia())
   handleScreen = () =>
     this.setState({ screen: !this.state.screen }, () => this.getDislayMedia())
-
+  handleRecord = () => {
+    this.setState({ record: !this.state.record }, () => {
+      if (this.state.record) this.startFunction()
+      else this.download()
+    })
+  }
   handleEndCall = () => {
     try {
       let tracks = this.localVideoref.current.srcObject.getTracks()
@@ -799,20 +806,6 @@ class Video extends Component {
                   <VideocamOffIcon />
                 )}
               </IconButton>
-              <button onClick={this.startFunction}>Record</button>
-              <button onClick={this.download}> Download!</button>
-              <IconButton
-                style={{
-                  color: "#ffffff",
-                  backgroundColor: "red",
-                  margin: "5px",
-                  width: "50px",
-                  height: "50px",
-                }}
-                onClick={this.handleEndCall}
-              >
-                <CallEndIcon />
-              </IconButton>
 
               <IconButton
                 style={{
@@ -826,7 +819,46 @@ class Video extends Component {
               >
                 {this.state.audio === true ? <MicIcon /> : <MicOffIcon />}
               </IconButton>
-
+              <IconButton
+                style={{
+                  color: "#ffffff",
+                  backgroundColor: "#808080",
+                  margin: "5px",
+                  width: "50px",
+                  height: "50px",
+                }}
+                onClick={this.handleRecord}
+              >
+                {this.state.record === false ? (
+                  <MovieFilterIcon />
+                ) : (
+                  <GetAppIcon />
+                )}
+              </IconButton>
+              {/* <IconButton
+                style={{
+                  color: "#ffffff",
+                  backgroundColor: "#808080",
+                  margin: "5px",
+                  width: "50px",
+                  height: "50px",
+                }}
+                onClick={this.download}
+              >
+                <GetAppIcon />
+              </IconButton> */}
+              <IconButton
+                style={{
+                  color: "#ffffff",
+                  backgroundColor: "red",
+                  margin: "5px",
+                  width: "50px",
+                  height: "50px",
+                }}
+                onClick={this.handleEndCall}
+              >
+                <CallEndIcon />
+              </IconButton>
               {this.state.screenAvailable === true ? (
                 <IconButton
                   style={{
