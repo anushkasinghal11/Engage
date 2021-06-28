@@ -1,0 +1,199 @@
+/* html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  text-align: center;
+  background-color: whitesmoke;
+}
+
+.container2 {
+  padding-top: 30px;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.teams-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.teams-wrapper h3 {
+  color: #6264a7;
+}
+.teams-container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  width: 350px;
+  padding: 30px;
+  border-radius: 3px;
+  background: #fff;
+  box-shadow: 0 10px 10px 0 rgba(153, 153, 153, 0.19),
+    0 5px 10px 0 rgba(138, 138, 138, 0.24);
+}
+
+.signin-logo {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.signin-title {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.signin-title h2 {
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+.signin-container {
+  padding-top: 20px;
+}
+
+.signin-input input {
+  width: 100%;
+  height: 50px;
+  outline: none;
+  border: none;
+  background: #edebe9;
+  position: relative;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  border-radius: px;
+}
+
+input[type="email"] {
+  padding-left: 10px;
+  flex: none;
+}
+
+.btn button {
+  margin-top: 13px;
+  width: 100%;
+  height: 50px;
+  border: none;
+  background: #edebe9;
+  outline: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgb(189, 189, 189);
+}
+
+.classed {
+  border-bottom: 2px solid #5255b0 !important;
+}
+
+.validate {
+  background: #5255b0 !important;
+  color: #fff !important;
+}
+
+#learnmore a {
+  text-decoration: none;
+  opacity: 0.5;
+  font-weight: 500;
+}
+
+.teams-details {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.btn-signup {
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  background: #fff;
+  color: #4d4d4d;
+  font-weight: 600;
+  box-shadow: 0 10px 10px 0 rgb(189, 189, 189, 0.19),
+    0 5px 10px 0 rgba(189, 189, 189, 0.24);
+  cursor: pointer;
+}
+
+@media (max-width: 375px) {
+  body {
+    width: auto;
+    padding: 10px 20px;
+  }
+
+  .teams-container {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 0;
+  }
+} */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+h1 {
+  margin: 0;
+  text-align: center;
+  color: #ffffff;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  text-align: center;
+  background-color: #1d1d1d !important;
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+}
+
+.container2 {
+  padding-top: 30px;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.homecontainer {
+  padding-top: 50px;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #1d1d1d !important;
+}
+
+a,
+area,
+button,
+inputComponent,
+[role="button"],
+input:not([type="range"]),
+label,
+select,
+summary,
+textarea {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  color: #ffffff;
+  border: #ffffff !important;
+}
+
+.MuiInput-underline,
+.MuiInput-underline:focus,
+.MuiInput-underline:active,
+.MuiInput-underline:hover {
+  border-bottom: 1px solid #5867dd !important;
+}
+
+*:focus {
+  outline: none !important;
+}

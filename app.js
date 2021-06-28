@@ -17,7 +17,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/build/index.html"))
 })
 
-app.set("port", process.env.PORT || 4001)
+app.set("port", process.env.PORT || 3000)
 
 sanitizeString = str => {
   return xss(str)

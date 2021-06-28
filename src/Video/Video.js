@@ -6,8 +6,9 @@ import { Input, Button } from "@material-ui/core"
 import { Row } from "reactstrap"
 import "bootstrap/dist/css/bootstrap.css"
 import "./Video.css"
+import Select from "react-select"
 
-const server_url = "http://localhost:4001"
+const server_url = "http://localhost:3000"
 
 var connections = {}
 const peerConnectionConfig = {
@@ -16,6 +17,16 @@ const peerConnectionConfig = {
 var socket = null
 var socketId = null
 var elms = 0
+
+const options = [
+  { value: "none", label: "Chocolate" },
+  { value: "grayscale(100%)", label: "Grayscale" },
+  { value: "sepia(100%)", label: "Sepia" },
+  { value: "invert(100%)", label: "Invert" },
+  { value: "hue-rotate(90deg)", label: "Hue-rotate" },
+  { value: "contrast(200%)", label: "Contrast" },
+  { value: "blur(10px)", label: "Blur" },
+]
 
 var theStream
 var theRecorder
@@ -437,9 +448,30 @@ class Video extends Component {
     })
   }
 
-  startFunction = () => {
+  onSelectFilter = () => {
     navigator.mediaDevices
       .getUserMedia({ video: true, audio: true })
+      .then(this.applyFilter)
+      .catch(e => {
+        console.error("getUserMedia() failed: " + e)
+      })
+  }
+
+  applyFilter = stream => {
+    var video = document.querySelector("video")
+    video.srcObject = stream
+    video.style.filter = "grayscale(100%)"
+    let main = document.getElementById("main")
+
+    let videos = main.querySelectorAll("video")
+    for (let a = 0; a < videos.length; a++) {
+      videos[a].style.filter = "grayscale(100%)"
+    }
+  }
+
+  startFunction = () => {
+    navigator.mediaDevices
+      .getUserMedia({ video: { mediaSource: "screen" }, audio: true })
       .then(this.gotMedia)
       .catch(e => {
         console.error("getUserMedia() failed: " + e)
@@ -541,6 +573,7 @@ class Video extends Component {
               </Row>
               <button onClick={this.startFunction}>Record</button>
               <button onClick={this.download}> Download!</button>
+              <button onClick={this.onSelectFilter}>Filter</button>
             </div>
           </div>
         )}
