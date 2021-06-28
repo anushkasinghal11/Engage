@@ -1,0 +1,113 @@
+.btn-down {
+  z-index: 2;
+  position: fixed;
+  /* bottom: 0px; */
+
+  height: 100%;
+  margin-left: 0px;
+
+  margin-bottom: 0px;
+}
+/* .video-page {
+  background-color: grey;
+}
+/* .dropdown-cust {
+  width: 6%;
+} */
+
+body {
+  margin: 0;
+  background-color: #1d1d1d;
+  color: #ffffff !important;
+  font-family: "Poppins", sans-serif;
+}
+
+.flex-container {
+  height: calc(100% - 150px);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.ant-message-notice-content {
+  background: #5a6bda !important;
+  color: #ffffff !important;
+  font-family: "Poppins", sans-serif;
+}
+
+/* #my-video {
+    background: #fff !important;
+	color: #ffffff !important;
+	font-family: 'Poppins', sans-serif;
+} */
+
+.modal-content,
+.modal-header,
+.modal-footer {
+  color: #fff !important;
+  background-color: #292929 !important;
+  font-family: "Poppins", sans-serif;
+}
+.modal-header {
+  color: #fff !important;
+  background-color: #3d3d3d !important;
+  font-size: 16px !important;
+  border-bottom: solid 1px #2d2d2d !important;
+}
+
+.modal-title {
+  color: #9e9e9e !important;
+  font-size: 14px !important;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-top: 5px;
+}
+.modal-footer {
+  color: #fff !important;
+  border-top: solid 1px #1d1d1d !important;
+}
+
+.anticon-check-circle {
+  display: none;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  max-width: 100vw;
+  max-height: 100vh;
+  color: #ffffff !important;
+
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.div-send-msg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff !important;
+}
+
+.btn-down {
+  z-index: 2;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: auto;
+}
+
+.MuiInput-underline,
+.MuiInput-underline:focus,
+.MuiInput-underline:active,
+.MuiInput-underline:hover {
+  border-bottom: 1px solid #5867dd !important;
+}
+
+*:focus {
+  outline: none !important;
+}
