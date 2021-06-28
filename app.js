@@ -17,7 +17,7 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/build/index.html"))
 })
 
-app.set("port", process.env.PORT || 3000)
+app.set("port", process.env.PORT || 4001)
 
 sanitizeString = str => {
   return xss(str)
@@ -26,12 +26,79 @@ sanitizeString = str => {
 connections = {}
 messages = {}
 timeOnline = {}
+participants = {}
 
 io.on("connection", socket => {
+  // socket.on("add-name", (username, path) => {
+  //   if (participants[path] === undefined) participants[path] = []
+  //   participants[path].push(username)
+  //   console.log("members", participants[path])
+  //   socket.emit("participants-array", participants[path])
+  // })
+  socket.on("send-chattheme", color => {
+    socket.broadcast.emit("chat-color", color)
+  })
+  socket.on("user-filter", filter => {
+    var key
+    for (const [k, v] of JSON.parse(
+      JSON.stringify(Object.entries(connections))
+    )) {
+      for (let a = 0; a < v.length; ++a) {
+        if (v[a] === socket.id) {
+          key = k
+
+          for (let a = 0; a < connections[key].length; ++a) {
+            io.to(connections[key][a]).emit("photo-filter", socket.id, filter)
+          }
+        }
+      }
+    }
+  })
+
+  socket.on("send-username2", username => {
+    var path
+    for (const [k, v] of JSON.parse(
+      JSON.stringify(Object.entries(connections))
+    )) {
+      for (let a = 0; a < v.length; ++a) {
+        if (v[a] === socket.id) {
+          path = k
+          for (let a = 0; a < connections[path].length; ++a) {
+            if (connections[path][a] !== socket.id)
+              io.to(connections[path][a]).emit(
+                "leave-notification",
+                `${username} has left the call`
+              )
+          }
+        }
+      }
+    }
+  })
+
+  socket.on("send-username-hand", username => {
+    var path
+    for (const [k, v] of JSON.parse(
+      JSON.stringify(Object.entries(connections))
+    )) {
+      for (let a = 0; a < v.length; ++a) {
+        if (v[a] === socket.id) {
+          path = k
+          for (let a = 0; a < connections[path].length; ++a) {
+            if (connections[path][a] !== socket.id)
+              io.to(connections[path][a]).emit(
+                "hand-raise",
+                `${username} has raised their hand`
+              )
+          }
+        }
+      }
+    }
+  })
   socket.on("join-call", path => {
     if (connections[path] === undefined) {
       connections[path] = []
     }
+
     connections[path].push(socket.id)
 
     timeOnline[socket.id] = new Date()
@@ -42,7 +109,22 @@ io.on("connection", socket => {
         socket.id,
         connections[path]
       )
+      // io.to(connections[path][a]).emit(
+      //   "chat-message",
+      //   "New user Joined",
+      //   "admin"
+      // )
     }
+
+    socket.on("send-username", username => {
+      for (let a = 0; a < connections[path].length; ++a) {
+        if (connections[path][a] !== socket.id)
+          io.to(connections[path][a]).emit(
+            "join-notification",
+            `${username} has joined the call`
+          )
+      }
+    })
 
     if (messages[path] !== undefined) {
       for (let a = 0; a < messages[path].length; ++a) {
@@ -63,9 +145,6 @@ io.on("connection", socket => {
   })
 
   socket.on("chat-message", (data, sender) => {
-    data = sanitizeString(data)
-    sender = sanitizeString(sender)
-
     var key
     var ok = false
     for (const [k, v] of Object.entries(connections)) {
@@ -95,7 +174,6 @@ io.on("connection", socket => {
   })
 
   socket.on("disconnect", () => {
-    var diffTime = Math.abs(timeOnline[socket.id] - new Date())
     var key
     for (const [k, v] of JSON.parse(
       JSON.stringify(Object.entries(connections))
@@ -110,8 +188,6 @@ io.on("connection", socket => {
 
           var index = connections[key].indexOf(socket.id)
           connections[key].splice(index, 1)
-
-          console.log(key, socket.id, Math.ceil(diffTime / 1000))
 
           if (connections[key].length === 0) {
             delete connections[key]
