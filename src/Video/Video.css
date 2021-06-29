@@ -1,13 +1,3 @@
-.btn-down {
-  z-index: 2;
-  position: fixed;
-  /* bottom: 0px; */
-
-  height: 100%;
-  margin-left: 0px;
-
-  margin-bottom: 0px;
-}
 /* .video-page {
   background-color: grey;
 }
