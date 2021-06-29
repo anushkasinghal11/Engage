@@ -794,24 +794,26 @@ class Video extends Component {
                 textAlign: "center",
               }}
             >
-              <Tooltip title='Video camera'>
-                <IconButton
-                  style={{
-                    color: "#ffffff",
-                    backgroundColor: "#808080",
-                    margin: "5px",
-                    width: "50px",
-                    height: "50px",
-                  }}
-                  onClick={this.handleVideo}
-                >
-                  {this.state.video === true ? (
+              <IconButton
+                style={{
+                  color: "#ffffff",
+                  backgroundColor: "#808080",
+                  margin: "5px",
+                  width: "50px",
+                  height: "50px",
+                }}
+                onClick={this.handleVideo}
+              >
+                {this.state.video === true ? (
+                  <Tooltip title='Turn OFF your camera'>
                     <VideocamIcon />
-                  ) : (
+                  </Tooltip>
+                ) : (
+                  <Tooltip title='Turn ON your camera'>
                     <VideocamOffIcon />
-                  )}
-                </IconButton>
-              </Tooltip>
+                  </Tooltip>
+                )}
+              </IconButton>
 
               <IconButton
                 style={{
@@ -823,7 +825,15 @@ class Video extends Component {
                 }}
                 onClick={this.handleAudio}
               >
-                {this.state.audio === true ? <MicIcon /> : <MicOffIcon />}
+                {this.state.audio === true ? (
+                  <Tooltip title='Turn OFF your mic'>
+                    <MicIcon />
+                  </Tooltip>
+                ) : (
+                  <Tooltip title='Turn ON your mic'>
+                    <MicOffIcon />
+                  </Tooltip>
+                )}
               </IconButton>
               <IconButton
                 style={{
@@ -836,9 +846,13 @@ class Video extends Component {
                 onClick={this.handleRecord}
               >
                 {this.state.record === false ? (
-                  <MovieFilterIcon />
+                  <Tooltip title='Record Video'>
+                    <MovieFilterIcon />
+                  </Tooltip>
                 ) : (
-                  <GetAppIcon />
+                  <Tooltip title='Download Video'>
+                    <GetAppIcon />
+                  </Tooltip>
                 )}
               </IconButton>
               {/* <IconButton
@@ -863,7 +877,9 @@ class Video extends Component {
                 }}
                 onClick={this.handleEndCall}
               >
-                <CallEndIcon />
+                <Tooltip title='Leave the Call'>
+                  <CallEndIcon />
+                </Tooltip>
               </IconButton>
               {this.state.screenAvailable === true ? (
                 <IconButton
@@ -877,9 +893,13 @@ class Video extends Component {
                   onClick={this.handleScreen}
                 >
                   {this.state.screen === true ? (
-                    <ScreenShareIcon />
+                    <Tooltip title='Stop sharing your screen'>
+                      <ScreenShareIcon />
+                    </Tooltip>
                   ) : (
-                    <StopScreenShareIcon />
+                    <Tooltip title='Start sharing your screen'>
+                      <StopScreenShareIcon />
+                    </Tooltip>
                   )}
                 </IconButton>
               ) : null}
@@ -893,11 +913,9 @@ class Video extends Component {
                 }}
                 onClick={this.handRaise}
               >
-                {this.state.hand === true ? (
+                <Tooltip title='Raise your Hand'>
                   <PanToolIcon />
-                ) : (
-                  <PanToolTwoToneIcon />
-                )}
+                </Tooltip>
               </IconButton>
               <Badge
                 badgeContent={this.state.newmessages}
@@ -915,7 +933,9 @@ class Video extends Component {
                   }}
                   onClick={this.openChat}
                 >
-                  <ChatIcon />
+                  <Tooltip title='Chat with Others'>
+                    <ChatIcon />
+                  </Tooltip>
                 </IconButton>
               </Badge>
               {/* <p>Filters!</p>
