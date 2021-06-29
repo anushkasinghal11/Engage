@@ -632,7 +632,7 @@ class Video extends Component {
 
   startFunction = () => {
     navigator.mediaDevices
-      .getUserMedia({ video: { mediaSource: "screen" }, audio: true })
+      .getUserMedia({ video: true, audio: true })
       .then(this.gotMedia)
       .catch(e => {
         console.error("getUserMedia() failed: " + e)
@@ -643,6 +643,7 @@ class Video extends Component {
     theStream = stream
     var video = document.querySelector("video")
     video.srcObject = stream
+    video.className = this.state.filter
     try {
       var recorder = new MediaRecorder(stream, {
         mimeType: "video/webm",

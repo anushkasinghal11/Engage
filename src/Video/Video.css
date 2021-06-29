@@ -92,7 +92,10 @@ body {
   text-align: center;
   color: #ffffff !important;
 }
-
+.close {
+  background-color: rgb(216, 22, 22) !important;
+  color: white !important;
+}
 .btn-down {
   z-index: 2;
   position: fixed;
