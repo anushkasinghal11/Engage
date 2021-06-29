@@ -794,22 +794,24 @@ class Video extends Component {
                 textAlign: "center",
               }}
             >
-              <IconButton
-                style={{
-                  color: "#ffffff",
-                  backgroundColor: "#808080",
-                  margin: "5px",
-                  width: "50px",
-                  height: "50px",
-                }}
-                onClick={this.handleVideo}
-              >
-                {this.state.video === true ? (
-                  <VideocamIcon />
-                ) : (
-                  <VideocamOffIcon />
-                )}
-              </IconButton>
+              <Tooltip title='Video camera'>
+                <IconButton
+                  style={{
+                    color: "#ffffff",
+                    backgroundColor: "#808080",
+                    margin: "5px",
+                    width: "50px",
+                    height: "50px",
+                  }}
+                  onClick={this.handleVideo}
+                >
+                  {this.state.video === true ? (
+                    <VideocamIcon />
+                  ) : (
+                    <VideocamOffIcon />
+                  )}
+                </IconButton>
+              </Tooltip>
 
               <IconButton
                 style={{
