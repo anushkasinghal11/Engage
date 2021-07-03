@@ -48,8 +48,8 @@ class Video extends Component {
 
     this.localVideoref = React.createRef()
 
-    this.videoAvailable = false
-    this.audioAvailable = false
+    this.videoAvailable = true
+    this.audioAvailable = true
 
     this.state = {
       hand: false,
@@ -552,7 +552,13 @@ class Video extends Component {
       this.setState({ message: "", sender: this.state.username })
     }
   }
-
+  // doc_keyUp = e => {
+  //   // this would test for whichever key is 40 (down arrow) and the ctrl key at the same time
+  //   if (e.ctrlKey && e.key === "ArrowDown") {
+  //     // call your function to do the thing
+  //     this.handleAudio()
+  //   }
+  // }
   copyUrl = () => {
     let text = window.location.href
     if (!navigator.clipboard) {
