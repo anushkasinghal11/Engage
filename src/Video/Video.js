@@ -522,8 +522,9 @@ class Video extends Component {
     try {
       let tracks = this.localVideoref.current.srcObject.getTracks()
       tracks.forEach(track => track.stop())
-    } catch (e) {}
-    window.location.href += "/"
+    } catch (e) {
+      console.log(e)
+    }
     this.setState({ askForUsername: true })
     socket.emit("send-username2", this.state.username)
   }
