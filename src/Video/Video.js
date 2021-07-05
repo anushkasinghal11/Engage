@@ -69,8 +69,6 @@ class Video extends Component {
       username: faker.internet.userName(),
     }
     connections = {}
-
-    this.getPermissions()
   }
 
   recordVideo = () => {
@@ -587,7 +585,10 @@ class Video extends Component {
   }
 
   connect = () => {
-    this.setState({ askForUsername: false }, () => this.getMedia())
+    this.setState({ askForUsername: false }, () => {
+      this.getPermissions()
+      this.getMedia()
+    })
     // socket.emit("add-name", this.state.username, window.location.href)
   }
 
