@@ -520,8 +520,9 @@ class Video extends Component {
   }
   handleEndCall = () => {
     try {
-      let tracks = this.localVideoref.current.srcObject.getTracks()
-      tracks.forEach(track => track.stop())
+      // let tracks = this.localVideoref.current.srcObject.getTracks()
+      // tracks.forEach(track => track.stop())
+      this.setState({ video: false, audio: false }, this.getUserMedia())
     } catch (e) {}
     // window.location.href = "/"
     this.setState({ askForUsername: true })
