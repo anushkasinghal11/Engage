@@ -763,6 +763,50 @@ class Video extends Component {
                   </Tooltip>
                 </IconButton>
               </Badge>
+              <Modal
+                show={this.state.showModal}
+                onHide={this.closeChat}
+                style={{ zIndex: "99999" }}
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title>Chat Room </Modal.Title>
+                </Modal.Header>
+
+                <Modal.Body
+                  style={{
+                    overflow: "auto",
+                    overflowY: "auto",
+                    height: "400px",
+                    textAlign: "left",
+                  }}
+                >
+                  {this.state.messages.length > 0 ? (
+                    this.state.messages.map((item, index) => (
+                      <div key={index} style={{ textAlign: "left" }}>
+                        <p style={{ wordBreak: "break-all" }}>
+                          <b>{item.sender}</b>: {item.data}
+                        </p>
+                      </div>
+                    ))
+                  ) : (
+                    <p>No message yet</p>
+                  )}
+                </Modal.Body>
+                <Modal.Footer className='div-send-msg'>
+                  <Input
+                    placeholder='Message'
+                    value={this.state.message}
+                    onChange={e => this.handleMessage(e)}
+                  />
+                  <Button
+                    variant='contained'
+                    color='primary'
+                    onClick={this.sendMessage}
+                  >
+                    Send
+                  </Button>
+                </Modal.Footer>
+              </Modal>
             </div>
 
             {/* <div
