@@ -740,29 +740,29 @@ class Video extends Component {
                 onClick={this.connect}
                 style={{ margin: "20px" }}
               >
-                <Badge
-                  badgeContent={this.state.newmessages}
-                  max={999}
-                  color='secondary'
-                  onClick={this.openChat}
-                >
-                  <IconButton
-                    style={{
-                      color: "#ffffff",
-                      backgroundColor: "#808080",
-                      margin: "5px",
-                      width: "50px",
-                      height: "50px",
-                    }}
-                    onClick={this.openChat}
-                  >
-                    <Tooltip title='Chat with Others'>
-                      <ChatIcon />
-                    </Tooltip>
-                  </IconButton>
-                </Badge>
                 Connect
               </Button>
+              <Badge
+                badgeContent={this.state.newmessages}
+                max={999}
+                color='secondary'
+                onClick={this.openChat}
+              >
+                <IconButton
+                  style={{
+                    color: "#ffffff",
+                    backgroundColor: "#808080",
+                    margin: "5px",
+                    width: "50px",
+                    height: "50px",
+                  }}
+                  onClick={this.openChat}
+                >
+                  <Tooltip title='Chat with Others'>
+                    <ChatIcon />
+                  </Tooltip>
+                </IconButton>
+              </Badge>
             </div>
 
             {/* <div
