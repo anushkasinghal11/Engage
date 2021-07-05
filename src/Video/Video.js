@@ -519,11 +519,10 @@ class Video extends Component {
     })
   }
   handleEndCall = () => {
-    try {
-      // let tracks = this.localVideoref.current.srcObject.getTracks()
-      // tracks.forEach(track => track.stop())
-      this.setState({ video: false, audio: false }, this.getUserMedia())
-    } catch (e) {}
+    // let tracks = this.localVideoref.current.srcObject.getTracks()
+    // tracks.forEach(track => track.stop())
+    this.setState({ video: false, audio: false }, this.getUserMedia())
+
     // window.location.href = "/"
     this.setState({ askForUsername: true })
     socket.emit("send-username2", this.state.username)
