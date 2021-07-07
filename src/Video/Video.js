@@ -327,7 +327,10 @@ class Video extends Component {
   }
   notificationJoin = msg => {
     message.success(`${msg} has joined the call`)
-    this.setState({ participants: [...this.state.participants, msg] })
+
+    this.setState(prevState => ({
+      participants: [...prevState.participants, msg],
+    }))
   }
   notificationLeave = msg => {
     message.error(`${msg} has left the call`)
