@@ -118,6 +118,7 @@ io.on("connection", socket => {
     }
 
     socket.on("send-username", username => {
+      //participants[path].push(username)
       for (let a = 0; a < connections[path].length; ++a) {
         if (connections[path][a] !== socket.id)
           io.to(connections[path][a]).emit(

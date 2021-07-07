@@ -42,6 +42,7 @@ var elms = 0
 var theRecorder
 var theStream
 var recordedChunks = []
+//var participants=[]
 class Video extends Component {
   constructor(props) {
     super(props)
@@ -326,6 +327,7 @@ class Video extends Component {
   }
   notificationJoin = msg => {
     message.success(msg)
+    this.setState({ participants: [...this.state.participants, msg] })
   }
   notificationLeave = msg => {
     message.error(msg)
