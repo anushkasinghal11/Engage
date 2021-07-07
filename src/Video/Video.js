@@ -69,6 +69,7 @@ class Video extends Component {
       username: faker.internet.userName(),
     }
     connections = {}
+    this.connectToSocketServer()
   }
 
   recordVideo = () => {
@@ -120,7 +121,7 @@ class Video extends Component {
       },
       () => {
         this.getUserMedia()
-        this.connectToSocketServer()
+        //this.connectToSocketServer()
       }
     )
   }
