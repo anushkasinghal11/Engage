@@ -68,7 +68,7 @@ io.on("connection", socket => {
             if (connections[path][a] !== socket.id)
               io.to(connections[path][a]).emit(
                 "leave-notification",
-                `${username} has left the call`
+                `${username}`
               )
           }
         }
@@ -121,10 +121,7 @@ io.on("connection", socket => {
       //participants[path].push(username)
       for (let a = 0; a < connections[path].length; ++a) {
         if (connections[path][a] !== socket.id)
-          io.to(connections[path][a]).emit(
-            "join-notification",
-            `${username} has joined the call`
-          )
+          io.to(connections[path][a]).emit("join-notification", `${username}`)
       }
     })
 

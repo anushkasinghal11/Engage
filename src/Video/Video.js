@@ -326,12 +326,16 @@ class Video extends Component {
     }
   }
   notificationJoin = msg => {
-    message.success(msg)
+    message.success(`${msg} has joined the call`)
     this.setState({ participants: [...this.state.participants, msg] })
   }
   notificationLeave = msg => {
-    message.error(msg)
+    message.error(`${msg} has left the call`)
+    this.setState({
+      participants: this.state.participants.filter(people => people != msg),
+    })
   }
+
   changeCssVideos = main => {
     let widthMain = main.offsetWidth
     let minWidth = "30%"
@@ -373,6 +377,9 @@ class Video extends Component {
       if (video !== null) {
         video.style.filter = filter
       }
+      this.setState({
+        participants: [...this.state.participants, this.state.username],
+      })
     })
 
     socket.on("signal", this.gotMessageFromServer)
