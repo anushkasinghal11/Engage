@@ -25,7 +25,7 @@ import "./Video.css"
 
 const server_url =
   process.env.NODE_ENV === "production"
-    ? "https://teams-mini.herokuapp.com/"
+    ? process.env.APP_URL
     : "http://localhost:4001"
 
 var connections = {}
