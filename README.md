@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+# Microsoft Engage 2021
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Deployed Link of the project
 
-## Available Scripts
+This is the link of the web application after deploying the code on **heroku**:
+https://teams-mini.herokuapp.com/<br/>
 
-In the project directory, you can run:
+## Problem statement
 
-### `yarn start`
+### Minimum Functionality
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To build a fully functional prototype with at least one mandatory functionality -
+a minimum of two participants should be able connect with each other using the product to have a video conversation.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Adopt feature:
 
-### `yarn test`
+Include a chat feature in your application where meeting participants can share info without disrupting the flow of the meeting.
+Through this feature the participants should be able have conversation befor joining, while in the meet and after leaving the meeting.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Agile Methodology and Approach to Build the Project
 
-### `yarn build`
+I have followed **Agile Scrum Methodology** to build this project.<br/>
+**Agile Scrum Methodology** is a project management method that is best used to improve the project in every iteration.
+Each iteration has sprints, where the goal in each sprint is to build the most important feature first and then improve the project as a potentially deliverable product.
+Microsoft has provided us with sprints :**Design, Build, Adopt** which are 1-2 weeks each.<br/>
+I also used a scrum board on trello to track my progress during ongoing sprints.
+I divided my project in four sprints of one week each.
+They are:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Sprint 1
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Research about WebRTC
+- Initializing a server and a starting web page.
+- Adding the ability to stream my own video
+- Connecting other clients and ability to see their video.
+- Basic Styling
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Sprint 2
 
-### `yarn eject`
+- Toggling mic button to turn off audio
+- Toggling video camera button to turn off video
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Sprint 3
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Worked on miscellaneous features like
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Hand-Raise
+- Video record and download
+- Screen Sharing
+- Real-time video filters
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Sprint 4
 
-## Learn More
+- Worked on the adopt functionality
+- Created a basic FAQ chatbot
+- Deployed the application on Heroku
+- Final UI touches
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Tech Stack used
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- React.JS(for client-side)
+- Node.JS and Express.JS(on server side)
+- WebRTC
+- Socket.IO(for webRTC signalling server)
+- Dialogflow and Kommunicate.io(for FAQ chatbot)
 
-### Code Splitting
+## Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Multi-user video conferencing
+- Connect on the go-no authentication required
+- Chat before entering the video meet, during the meet and after exiting the meet
+- Notifications whenever a user joins,exits the call or sends a message
+- Video and mic toggling
+- Screen sharing
+- Video record and download
+- Real-time video filters
+- Hand-raise
+- Copying the meet link to clipboard
+- And an FAQ chatbot
