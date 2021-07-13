@@ -532,6 +532,7 @@ class Video extends Component {
     })
   }
   handleEndCall = () => {
+    socket.disconnect()
     try {
       let tracks = this.localVideoref.current.srcObject.getTracks()
       tracks.forEach(track => track.stop())
