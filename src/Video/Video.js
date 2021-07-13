@@ -71,6 +71,7 @@ class Video extends Component {
     }
     connections = {}
     this.connectToSocketServer()
+    this.getPermissions()
   }
 
   recordVideo = () => {
@@ -602,7 +603,7 @@ class Video extends Component {
 
   connect = () => {
     this.setState({ askForUsername: false }, () => {
-      this.getPermissions()
+      // this.getPermissions()
       this.getMedia()
     })
     // socket.emit("add-name", this.state.username, window.location.href)
