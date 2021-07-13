@@ -77,4 +77,4 @@ Worked on miscellaneous features like
 
 ## Screenshots
 
-![Alt text](screenshots/Screenshot(163).png?raw=true "Optional Title")
+![Alt text](screenshots/1.png)
