@@ -74,3 +74,7 @@ Worked on miscellaneous features like
 - Hand-raise
 - Copying the meet link to clipboard
 - And an FAQ chatbot
+
+## Screenshots
+
+![Alt text](/screenshots/Screenshot(163).png?raw=true "Optional Title")
