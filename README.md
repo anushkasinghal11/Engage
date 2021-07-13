@@ -1,9 +1,6 @@
 # Microsoft Engage 2021
 
-## Deployed Link of the project
 
-This is the link of the web application after deploying the code on **heroku**:
-https://teams-mini.herokuapp.com/<br/>
 
 ## Problem statement
 
