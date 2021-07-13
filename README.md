@@ -77,4 +77,23 @@ Worked on miscellaneous features like
 
 ## Screenshots
 
+### Multi user video-conferencing
 ![Alt text](screenshots/1.png)
+
+### Realtime video filters!
+![Alt text](screenshots/2.png)
+
+### Raise Hand for attention
+![Alt text](screenshots/3.png)
+
+### Chat during the meet
+![Alt text](screenshots/4.png)
+
+### Chat before and after the call
+![Alt text](screenshots/5.png)
+
+### Screen sharing
+![Alt text](screenshots/6.png)
+ 
+ ### Video Recording and download
+ ![Alt text](screenshots/7.png)
